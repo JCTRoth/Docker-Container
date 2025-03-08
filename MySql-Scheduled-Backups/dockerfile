@@ -1,0 +1,16 @@
+FROM alpine:latest
+
+# Install required packages
+RUN apk add --no-cache mysql-client bash curl tar gzip
+
+# Create backup directory
+RUN mkdir -p /backups
+
+# Copy the backup script and config file
+COPY backup.sh /backup.sh
+COPY config.env /config.env
+COPY start.sh /start.sh
+RUN chmod +x /backup.sh /start.sh
+
+# Start the custom startup script
+CMD ["/start.sh"]
