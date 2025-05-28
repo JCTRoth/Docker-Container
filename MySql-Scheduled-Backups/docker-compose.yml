@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  mysql-backup:
+    build: .
+    networks:
+      - custom-network
+    container_name: mysql-backup-container
+
+networks:
+  custom-network:
+    driver: bridge

@@ -11,6 +11,7 @@ COPY backup.sh /backup.sh
 COPY config.env /config.env
 COPY start.sh /start.sh
 RUN chmod +x /backup.sh /start.sh
+RUN touch /var/log/cron.log
 
 # Start the custom startup script
 CMD ["/start.sh"]
